@@ -12,20 +12,15 @@ namespace PraktikPortalen.Controllers
         {
             _logger = logger;
         }
-
-        public IActionResult Test()
-        {
-            return View();
-        }
         
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public static string getWelcomeMessage()
         {
-            return View();
+            return "Hej, velkommen til praktikportalen";
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
