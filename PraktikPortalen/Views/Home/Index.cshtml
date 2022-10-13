@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using PraktikPortalen.Controllers;
 
 <div class="text-center">
     <h1 class="display-4">Velkommen</h1>
-    <p>@PraktikPortalen.Controllers.HomeController.getWelcomeMessage()</p>
+    <p>@HomeController.getWelcomeMessage()</p>
 </div>

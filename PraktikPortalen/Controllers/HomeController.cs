@@ -6,6 +6,7 @@ namespace PraktikPortalen.Controllers
 {
     public class HomeController : Controller
     {
+        public const Boolean notAuthenticated = false;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
