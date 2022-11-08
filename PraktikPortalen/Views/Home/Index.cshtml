@@ -1,9 +1,14 @@
-﻿@{
+﻿@model List<PraktikPortalen.Models.ProductModel>;
+@{
     ViewData["Title"] = "Home Page";
 }
 @using PraktikPortalen.Controllers;
 
 <div class="text-center">
     <h1 class="display-4">Velkommen</h1>
-    <p>@HomeController.getWelcomeMessage()</p>
+
+@*    <p>@HomeController.getWelcomeMessage()</p>
+    @foreach(var product in Model) {
+                <p>@Html.DisplayFor(m => product.id): @Html.DisplayFor(m => product.name)</p>
+    }*@
 </div>

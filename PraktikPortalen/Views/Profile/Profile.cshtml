@@ -1,3 +1,13 @@
-﻿@{
+﻿@model PraktikPortalen.Models.StudentModel;
+@{
     ViewData["Title"] = "Profil";
 }
+@using PraktikPortalen.Controllers;
+
+<div class="text-center">
+    <h1 class="display-4">Din profil</h1>
+    <a>@Model.name</a>
+    @*@foreach(var product in Model) {
+                <p>@Html.DisplayFor(m => product.id): @Html.DisplayFor(m => product.name)</p>
+    }*@
+</div>

@@ -1,11 +1,9 @@
 ﻿namespace PraktikPortalen.Models
 {
-    public class User
+    public class IUser
     {
-        string Id = "123";
-
-        string? Username;
-        
-        string? Password;
+        public string? Id { get; set; }
+        public string? Username { get; set; }
+        public string? Password { get; set; }
     }
 }

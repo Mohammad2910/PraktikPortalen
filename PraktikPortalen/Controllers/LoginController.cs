@@ -6,10 +6,16 @@ namespace PraktikPortalen.Controllers
     public class LoginController : Controller
     {
         public const bool authenticated = false;
-        Student student = new Student("Hej");
+        
+
         public IActionResult Login()
         {
-            return View(student);
+            return View();
+        }
+
+        public IActionResult _Layout()
+        {
+            return View();
         }
     }
 }

@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="~/PraktikPortalen.styles.css" asp-append-version="true" />
 </head>
     <body>
-    @if (PraktikPortalen.Controllers.HomeController.notAuthenticated == true)
-    {
         <header>
                 <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: red;">
                     <div class="container-fluid">
@@ -28,7 +26,6 @@
                     </div>
                 </nav>
         </header>
-    }
         <div class="container">
             <main role="main" class="pb-3">
                 @RenderBody()
