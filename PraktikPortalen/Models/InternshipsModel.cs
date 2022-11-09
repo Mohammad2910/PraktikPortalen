@@ -2,12 +2,9 @@
 {
     public class InternshipsModel
     {
-
-        public InternshipsModel(List<string> internships)
-        {
-            Internships = internships;
-        }
-
-        public List<String> Internships { get; set; }
+        public int InternshipId { get; set; }
+        public string InternshipName { get; set; } = string.Empty;
+        public string InternshipCompany { get; set; } = string.Empty;
+        public string Status { get; set; } = string.Empty;
     }
 }

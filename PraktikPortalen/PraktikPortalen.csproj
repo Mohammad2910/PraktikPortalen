@@ -7,12 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <Compile Remove="Views\InternshipDetail\**" />
+    <Content Remove="Views\InternshipDetail\**" />
+    <EmbeddedResource Remove="Views\InternshipDetail\**" />
+    <None Remove="Views\InternshipDetail\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\InternshipDetail\" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
   </ItemGroup>
 
 </Project>
