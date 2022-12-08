@@ -1,14 +1,16 @@
-﻿@model List<PraktikPortalen.Models.ProductModel>;
+﻿@model PraktikPortalen.Models.UserModel;
+@inject IHttpContextAccessor context;
+
 @{
     ViewData["Title"] = "Home Page";
 }
 @using PraktikPortalen.Controllers;
 
 <div class="text-center">
-    <h1 class="display-4">Velkommen</h1>
-
-@*    <p>@HomeController.getWelcomeMessage()</p>
-    @foreach(var product in Model) {
-                <p>@Html.DisplayFor(m => product.id): @Html.DisplayFor(m => product.name)</p>
-    }*@
+    <h1 class="display-4">Velkommen @Model.name</h1>
+    <p> På Praktikportalen kan du se alle praktikforløb tilknyttet til dig</p>
+    <div>
+        <button><a class="nav-link text-black" asp-controller="Internships" asp-action="Internships">Dine praktikforløb</a> </button>
+        <button><a class="nav-link text-black" asp-controller="Profile" asp-action="Profile">Din profil</a> </button>
+    </div>
 </div>

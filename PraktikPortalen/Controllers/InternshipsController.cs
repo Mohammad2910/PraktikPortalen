@@ -1,10 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using PraktikPortalen.Models;
 
 namespace PraktikPortalen.Controllers
 {
     public class InternshipsController : Controller
     {
+        private readonly ISession session;
+        private UserModel user;
+
+        public InternshipsController(IHttpContextAccessor context)
+        {
+            this.session = context.HttpContext.Session;
+            this.user = JsonConvert.DeserializeObject<UserModel>(session.GetString("User"));
+        }
         public IActionResult Internships()
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -13,7 +22,7 @@ namespace PraktikPortalen.Controllers
             using (var client = new HttpClient(clientHandler))
             {
                 client.BaseAddress = new Uri("https://localhost:5287/api/internships/");
-                var ResponseTask = client.GetAsync("");
+                var ResponseTask = client.GetAsync(user.id.ToString());
                 ResponseTask.Wait();
                 var result = ResponseTask.Result;
                 if (result.IsSuccessStatusCode)

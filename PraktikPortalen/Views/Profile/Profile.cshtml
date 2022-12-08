@@ -1,13 +1,85 @@
-﻿@model PraktikPortalen.Models.StudentModel;
+﻿@model PraktikPortalen.Models.UserModel;
 @{
     ViewData["Title"] = "Profil";
 }
 @using PraktikPortalen.Controllers;
 
-<div class="text-center">
+<div class="text-center" style="margin-bottom: 25px">
     <h1 class="display-4">Din profil</h1>
-    <a>@Model.name</a>
-    @*@foreach(var product in Model) {
-                <p>@Html.DisplayFor(m => product.id): @Html.DisplayFor(m => product.name)</p>
-    }*@
 </div>
+
+<div class="left_box">
+    <div class="content">
+        <form asp-action="SaveUser">
+            <h4 style="margin-bottom:15px">Person oplysninger</h4>
+
+            <label asp-for="name" class="control-label">Navn: </label><br/>
+            <input id="name" readonly asp-for="name" class="form-control" /><br/>
+            
+            <label asp-for="username" class="control-label">Brugernavn: </label><br/>
+            <input id="username" readonly asp-for="username" class="form-control" /><br/>
+            
+            <label asp-for="password" class="control-label">Password: </label><br/>
+            <input id="password" readonly asp-for="password" class="form-control" /><br/>
+            
+            <label asp-for="email" class="control-label">Email: </label><br/>
+            <input id="email" readonly asp-for="email" class="form-control" /><br/>
+
+            <div style="margin-left: 40%; width:20%">
+                <input id="editButton" type="button" value="Rediger"/>
+            </div>
+            <div style="margin-left: 40%; width:20%">
+                <input id="save" hidden type="submit" value="Gem"/>
+            </div>
+            <div style="margin-left: 40%; width:20%">
+                <input id="cancel" hidden type="button" value="Annuller"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="right_box">
+    <div class="content">
+        <h4>Aktuelle praktikforløb</h4>
+        Her skal en liste af dine aktuelle praktikforløb stå
+    </div>
+</div>
+
+<script>
+    var editMode = false;
+
+    let editButton = document.querySelector("#editButton");
+    let cancel = document.querySelector("#cancel");
+    let save = document.querySelector("#save");
+
+    
+    editButton.addEventListener("click", function(event){
+        if (!editMode) {
+            editMode = !editMode;
+            
+            editButton.hidden = true;
+            cancel.hidden = false;
+            save.hidden = false;
+            
+            document.querySelector("#name").readOnly = false;
+            document.querySelector("#username").readOnly = false;
+            document.querySelector("#password").readOnly = false;
+            document.querySelector("#email").readOnly = false;
+        }
+    });
+
+    cancel.addEventListener("click", function(event) {
+        if (editMode) {
+            editMode = !editMode;
+
+            editButton.hidden = false;
+            cancel.hidden = true;
+            save.hidden = true;
+
+            document.querySelector("#name").readOnly = true;
+            document.querySelector("#username").readOnly = true;
+            document.querySelector("#password").readOnly = true;
+            document.querySelector("#email").readOnly = true;
+        }
+    });
+</script>

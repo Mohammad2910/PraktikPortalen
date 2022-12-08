@@ -1,1 +1,33 @@
-﻿
+﻿@model PraktikPortalen.Models.Credentials
+@using PraktikPortalen.Controllers
+@inject IHttpContextAccessor context;
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @if(context.HttpContext.Session.GetInt32("statusCode") == 401) {
+            <span id="danger" class="text-danger">Forkert brugernavn eller password</span>
+
+        }
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="username" class="control-label">Brugernavn</label>
+                <input id="username" asp-for="username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label">Password</label>
+                <input id="password" asp-for="password" class="form-control" />
+            </div><br/>
+            <div class="form-group">
+                <input id="login" type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -19,12 +19,14 @@
             {
                 <tr style="border-block: solid; line-height: 30px">
                     <td>@data.InternshipName</td>
-                    @if (data.Status == "Approved") {
-                    <td style="padding-left: 600px; color: green">@data.Status</td>
-                } else if (data.Status == "Not approved") { 
-                    <td style="padding-left: 600px; color: red">@data.Status</td>
+                @if (data.Status == "approved") {
+                    <td style="padding-left: 600px; color: green">Godkendt</td>
+                } else if (data.Status == "rejected") { 
+                    <td style="padding-left: 600px; color: red">Ikke godkendt</td>
+                } else if (data.Status == "submitted") {
+                    <td style="padding-left: 600px">Indsendt</td>
                 } else {
-                    <td style="padding-left: 600px">@data.Status</td>
+                    <td style="padding-left: 600px">Kladde</td>
                 }
                         <td style="float:right"> <input type="button" value="Redigér"/> </td>
                 </tr>
