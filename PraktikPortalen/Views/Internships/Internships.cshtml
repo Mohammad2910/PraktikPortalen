@@ -1,8 +1,19 @@
 ﻿@model List<PraktikPortalen.Models.InternshipsModel>;
+@inject IHttpContextAccessor context;
+@using Newtonsoft.Json;
+
 @{
     ViewData["Title"] = "Praktikforløb";
 }
-<h1>Dine praktikforløb</h1>
+<h1>Dine praktikforløb</h1><br/>
+
+@if (JsonConvert.DeserializeObject<UserModel>(context.HttpContext.Session.GetString("User")).type == 1)
+{
+    <button><a class="nav-link text-black" asp-area="" asp-controller="Internships" asp-action="New">Opret indberettelse</a> </button><br/><br/>
+
+} else {
+    <span>Note: Det er kun studerende der kan indberette praktikforløb</span>
+}
 <table style="width: 100%">
     <thead class="thead-light"></thead
         <tr>
